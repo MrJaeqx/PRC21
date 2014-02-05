@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*      COPYRIGHT MR. FISH 2014
+ * 
+ *      |\   \\\\__     o
+ *      | \_/    o \    o 
+ *      > _   (( <_  oo  
+ *      | / \__+___/      
+ *      |/     |/
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
