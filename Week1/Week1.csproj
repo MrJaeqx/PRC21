@@ -48,20 +48,22 @@
   <ItemGroup>
     <Compile Include="ListTools.cs" />
     <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="About.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Resultaat.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Vak.cs" />
