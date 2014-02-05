@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*      COPYRIGHT MR. FISH 2014
+ * 
+ *      |\   \\\\__     o
+ *      | \_/    o \    o 
+ *      > _   (( <_  oo  
+ *      | / \__+___/      
+ *      |/     |/
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +21,7 @@ namespace Week1
         private string vakNaam;
         private int SBU;
 
-        Vak(string code, string naam, int sbu)
+        public Vak(string code, string naam, int sbu)
         {
             this.vakCode = code;
             this.vakNaam = naam;
