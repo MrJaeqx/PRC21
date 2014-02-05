@@ -51,8 +51,17 @@ namespace Week1
 
         public int getMaxResulaat()
         {
-            // Stuff
-            return 1337;
+            int hoogsteCijfer = 0;
+
+            foreach (Resultaat r in resultaten)
+            {
+                if (r.getCijfer() > hoogsteCijfer)
+                {
+                    hoogsteCijfer = r.getCijfer();
+                }
+            }
+            
+            return hoogsteCijfer;
         }
 
         public int getStudieLast()
