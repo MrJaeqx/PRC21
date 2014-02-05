@@ -69,5 +69,10 @@ namespace Week1
             updateList();
         }
 
+        private void buttonOpdracht7_Click(object sender, EventArgs e)
+        {
+            new About().ShowDialog();
+        }
+
     }
 }

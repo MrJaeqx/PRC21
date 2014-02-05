@@ -49,6 +49,7 @@
             this.buttonMin = new System.Windows.Forms.Button();
             this.buttonMax = new System.Windows.Forms.Button();
             this.buttonGemiddelde = new System.Windows.Forms.Button();
+            this.buttonOpdracht7 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -97,6 +98,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonOpdracht7, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(415, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -309,6 +311,17 @@
             this.buttonGemiddelde.Text = "Gemiddelde";
             this.buttonGemiddelde.UseVisualStyleBackColor = true;
             // 
+            // buttonOpdracht7
+            // 
+            this.buttonOpdracht7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonOpdracht7.Location = new System.Drawing.Point(3, 361);
+            this.buttonOpdracht7.Name = "buttonOpdracht7";
+            this.buttonOpdracht7.Size = new System.Drawing.Size(401, 23);
+            this.buttonOpdracht7.TabIndex = 2;
+            this.buttonOpdracht7.Text = "Opdracht 7";
+            this.buttonOpdracht7.UseVisualStyleBackColor = true;
+            this.buttonOpdracht7.Click += new System.EventHandler(this.buttonOpdracht7_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,6 +367,7 @@
         private System.Windows.Forms.Label labelTel;
         private System.Windows.Forms.NumericUpDown numericUpDownTel;
         private System.Windows.Forms.Button buttonTel;
+        private System.Windows.Forms.Button buttonOpdracht7;
     }
 }
 
