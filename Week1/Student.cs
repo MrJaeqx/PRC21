@@ -18,14 +18,16 @@ namespace Week1
     {
 
         private int studentNr;
+        private static int prevnr = -1;
         private string naam;
         private string adres;
         private DateTime geboorteDatum;
         private List<Resultaat> resultaten;
 
-        public Student(int studentnr, string naam, string adres, DateTime geboorteDatum)
+        public Student(string naam, string adres, DateTime geboorteDatum)
         {
-            this.studentNr = studentnr;
+            this.studentNr = prevnr + 1;
+            prevnr++;
             this.naam = naam;
             this.adres = adres;
             this.geboorteDatum = geboorteDatum;
@@ -46,7 +48,7 @@ namespace Week1
                 resultaten.Remove(r);
             }
             
-            resultaten.Add(new Resultaat(vak, cijfer));
+            resultaten.Add(new Resultaat(0,vak, cijfer));
         }
 
         public int getMaxResulaat()
@@ -77,6 +79,36 @@ namespace Week1
             }
 
             return SBU;
+        }
+
+        public string getNaam()
+        {
+            return this.naam;
+        }
+
+        public string getAdres()
+        {
+            return this.adres;
+        }
+
+        public string getDateAsString()
+        {
+            return this.geboorteDatum.ToShortDateString();
+        }
+
+        public string getNrAsString()
+        {
+            return Convert.ToString(this.studentNr);
+        }
+
+        public void setNaam(string n)
+        {
+            this.naam = n;
+        }
+
+        public void setAdres(string a)
+        {
+            this.adres = a;
         }
     }
 }
