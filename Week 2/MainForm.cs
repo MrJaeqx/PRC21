@@ -92,6 +92,7 @@ namespace Week_2
                 selectedSong = songs.Find(x => x.PathToFile.Equals(listViewSongs.SelectedItems[0].SubItems[3].Text));
                 labelName.Text = selectedSong.Name;
                 labelArtist.Text = selectedSong.GetArtist();
+                axWindowsMediaPlayer1.URL = selectedSong.PathToFile;
             }
         }
 
