@@ -20,9 +20,12 @@ namespace Week_2
 {
     public partial class MainForm : Form
     {
+        private List<Playlist> playlists = new List<Playlist>();
+
         public MainForm()
         {
             InitializeComponent();
+            updatePlaylistList();
         }
 
         private void updateSongList()
@@ -32,7 +35,21 @@ namespace Week_2
 
         private void updatePlaylistList()
         {
+            listViewLibrary.Groups.Clear();
+            listViewLibrary.Items.Clear();
+            ListViewGroup libraryGroup = new ListViewGroup("Bibliotheek");
+            ListViewGroup playlistGroup = new ListViewGroup("Afspeellijsten");
+            listViewLibrary.Groups.Add(playlistGroup);
 
+            ListViewItem libraryItem = new ListViewItem("Alle muziek", playlistGroup);
+            listViewLibrary.Items.Add(libraryItem);
+
+            foreach (Playlist playlist in playlists)
+            {
+                ListViewItem item = new ListViewItem(playlist.Name, playlistGroup);
+                listViewLibrary.Items.Add(item);
+            }
+            
         }
 
         private void changeList(object sender, EventArgs e)
@@ -66,7 +83,8 @@ namespace Week_2
             playlistForm.ShowDialog();
             if (playlistForm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                // Naam opvragen met playlistForm.PlaylistName
+                playlists.Add(new Playlist(playlistForm.PlaylistName));
+                updatePlaylistList();
             }
         }
 
