@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Bibliotheek", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Afspeellijsten", System.Windows.Forms.HorizontalAlignment.Left);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,7 +47,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStripSongs = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemPlay = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -60,12 +60,11 @@
             this.labelArtist = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxAlbum = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonPlay = new System.Windows.Forms.Button();
             this.contextMenuStripPlaylist = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemPlay2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemDelete2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -79,8 +78,8 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
-            this.panel2.SuspendLayout();
             this.contextMenuStripPlaylist.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -103,7 +102,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(884, 539);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(884, 514);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -124,7 +123,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 539);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 514);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // splitContainer1
@@ -140,7 +139,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.listViewSongs);
-            this.splitContainer1.Size = new System.Drawing.Size(878, 433);
+            this.splitContainer1.Size = new System.Drawing.Size(878, 408);
             this.splitContainer1.SplitterDistance = 292;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -157,7 +156,7 @@
             listViewGroup2});
             this.listViewLibrary.Location = new System.Drawing.Point(0, 0);
             this.listViewLibrary.Name = "listViewLibrary";
-            this.listViewLibrary.Size = new System.Drawing.Size(292, 433);
+            this.listViewLibrary.Size = new System.Drawing.Size(292, 408);
             this.listViewLibrary.TabIndex = 0;
             this.listViewLibrary.UseCompatibleStateImageBehavior = false;
             this.listViewLibrary.View = System.Windows.Forms.View.Tile;
@@ -205,13 +204,12 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader4});
             this.listViewSongs.ContextMenuStrip = this.contextMenuStripSongs;
             this.listViewSongs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewSongs.Location = new System.Drawing.Point(0, 0);
             this.listViewSongs.Name = "listViewSongs";
-            this.listViewSongs.Size = new System.Drawing.Size(582, 433);
+            this.listViewSongs.Size = new System.Drawing.Size(582, 408);
             this.listViewSongs.TabIndex = 0;
             this.listViewSongs.UseCompatibleStateImageBehavior = false;
             this.listViewSongs.View = System.Windows.Forms.View.Details;
@@ -229,17 +227,12 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Album";
-            this.columnHeader3.Width = 138;
+            this.columnHeader3.Text = "Jaar";
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Jaar";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Pad";
-            this.columnHeader5.Width = 93;
+            this.columnHeader4.Text = "Pad";
+            this.columnHeader4.Width = 93;
             // 
             // contextMenuStripSongs
             // 
@@ -295,15 +288,14 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.axWindowsMediaPlayer1, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 442);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 417);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 94F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(878, 94);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
@@ -316,7 +308,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(772, 88);
+            this.panel1.Size = new System.Drawing.Size(572, 88);
             this.panel1.TabIndex = 1;
             // 
             // labelAlbum
@@ -354,26 +346,6 @@
             this.pictureBoxAlbum.TabIndex = 0;
             this.pictureBoxAlbum.TabStop = false;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.buttonPlay);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(781, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(94, 88);
-            this.panel2.TabIndex = 2;
-            // 
-            // buttonPlay
-            // 
-            this.buttonPlay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonPlay.Location = new System.Drawing.Point(0, 0);
-            this.buttonPlay.Name = "buttonPlay";
-            this.buttonPlay.Size = new System.Drawing.Size(94, 88);
-            this.buttonPlay.TabIndex = 0;
-            this.buttonPlay.Text = "Afspelen";
-            this.buttonPlay.UseVisualStyleBackColor = true;
-            this.buttonPlay.Click += new System.EventHandler(this.togglePlayback);
-            // 
             // contextMenuStripPlaylist
             // 
             this.contextMenuStripPlaylist.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -402,6 +374,17 @@
             this.toolStripMenuItemDelete2.Text = "Verwijderen uit afspeellijst";
             this.toolStripMenuItemDelete2.Click += new System.EventHandler(this.deleteSongFromPlaylist);
             // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(581, 3);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(294, 88);
+            this.axWindowsMediaPlayer1.TabIndex = 2;
+            this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,8 +411,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.contextMenuStripPlaylist.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -448,13 +431,10 @@
         private System.Windows.Forms.Label labelArtist;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.PictureBox pictureBoxAlbum;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripSongs;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPlay;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -471,6 +451,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddFile2;
         private System.Windows.Forms.ToolStripMenuItem nieuweAfspeellijstToolStripMenuItem;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
 
