@@ -46,7 +46,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStripSongs = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemPlay = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -103,7 +102,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(884, 539);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(884, 514);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -124,7 +123,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 539);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 514);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // splitContainer1
@@ -140,7 +139,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.listViewSongs);
-            this.splitContainer1.Size = new System.Drawing.Size(878, 433);
+            this.splitContainer1.Size = new System.Drawing.Size(878, 408);
             this.splitContainer1.SplitterDistance = 292;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -157,7 +156,7 @@
             listViewGroup2});
             this.listViewLibrary.Location = new System.Drawing.Point(0, 0);
             this.listViewLibrary.Name = "listViewLibrary";
-            this.listViewLibrary.Size = new System.Drawing.Size(292, 433);
+            this.listViewLibrary.Size = new System.Drawing.Size(292, 408);
             this.listViewLibrary.TabIndex = 0;
             this.listViewLibrary.UseCompatibleStateImageBehavior = false;
             this.listViewLibrary.View = System.Windows.Forms.View.Tile;
@@ -205,13 +204,12 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader4});
             this.listViewSongs.ContextMenuStrip = this.contextMenuStripSongs;
             this.listViewSongs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewSongs.Location = new System.Drawing.Point(0, 0);
             this.listViewSongs.Name = "listViewSongs";
-            this.listViewSongs.Size = new System.Drawing.Size(582, 433);
+            this.listViewSongs.Size = new System.Drawing.Size(582, 408);
             this.listViewSongs.TabIndex = 0;
             this.listViewSongs.UseCompatibleStateImageBehavior = false;
             this.listViewSongs.View = System.Windows.Forms.View.Details;
@@ -229,17 +227,12 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Album";
-            this.columnHeader3.Width = 138;
+            this.columnHeader3.Text = "Jaar";
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Jaar";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Pad";
-            this.columnHeader5.Width = 93;
+            this.columnHeader4.Text = "Pad";
+            this.columnHeader4.Width = 93;
             // 
             // contextMenuStripSongs
             // 
@@ -299,7 +292,7 @@
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 442);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 417);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -454,7 +447,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripSongs;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPlay;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
