@@ -25,6 +25,7 @@ namespace Week_2
         private List<Song> songs = new List<Song>();
         private List<Playlist> playlists = new List<Playlist>();
         private Song selectedSong;
+        private bool doPlaylist = false;
 
         public MainForm()
         {
@@ -38,6 +39,7 @@ namespace Week_2
             {
                 if (listViewLibrary.SelectedItems[0].Text == libraryItemName)
                 {
+                    doPlaylist = false;
                     listViewSongs.ContextMenuStrip = contextMenuStripSongs;
                     listViewSongs.Items.Clear();
                     foreach (Song song in songs)
@@ -48,6 +50,7 @@ namespace Week_2
                 }
                 else
                 {
+                    doPlaylist = true;
                     listViewSongs.ContextMenuStrip = contextMenuStripPlaylist;
                     Playlist selectedPlaylist = playlists.Find(x => x.Name.Equals(listViewLibrary.SelectedItems[0].Text));
 
@@ -168,6 +171,11 @@ namespace Week_2
                 selectedPlaylist.Songs.Remove(selectedPlaylist.Songs.Find(x => x.PathToFile.Equals(listViewSongs.SelectedItems[0].SubItems[3].Text)));
                 updateSongList();
             }
+        }
+
+        private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            
         }
         
     }
