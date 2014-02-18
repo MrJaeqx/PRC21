@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Week_2
 {
-    class Artist
+    public class Artist
     {
 
         public string      Name       { get; private set; }
