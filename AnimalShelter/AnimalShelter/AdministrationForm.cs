@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace AnimalShelter
+{
+    public partial class AdministrationForm : Form
+    {
+        /// <summary>
+        /// The (only) animal in this administration (for now....)
+        /// </summary>
+        private Animal animal;
+
+        /// <summary>
+        /// Creates the form for doing adminstrative tasks
+        /// </summary>
+        public AdministrationForm()
+        {
+            InitializeComponent();
+            animalTypeComboBox.SelectedIndex = 0;
+            animal = null;
+        }
+
+        /// <summary>
+        /// Create an Animal object and store it in the administration.
+        /// If "Dog" is selected in the animalTypeCombobox then a Dog object should be created.
+        /// If "Cat" is selected in the animalTypeCombobox then a Cat object should be created.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void createAnimalButton_Click(object sender, EventArgs e)
+        {
+            if (animalTypeComboBox.Text == "Dog")
+            {
+                SimpleDate birth = new SimpleDate(Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox4.Text), Convert.ToInt32(textBox5.Text));
+                SimpleDate walk = new SimpleDate(0,0,0);
+                if(textBox6.Text != "" && textBox7.Text != "" && textBox8.Text != ""){
+                    walk = new SimpleDate(Convert.ToInt32(textBox8.Text), Convert.ToInt32(textBox7.Text), Convert.ToInt32(textBox6.Text));
+                }
+                animal = new Dog(textBox1.Text, birth, textBox2.Text, walk);
+            }
+
+            if (animalTypeComboBox.Text == "Cat")
+            {
+                SimpleDate birth = new SimpleDate(Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox4.Text), Convert.ToInt32(textBox5.Text));
+                animal = new Cat(textBox1.Text, birth, textBox2.Text, textBox11.Text);
+            }
+        }
+
+        /// <summary>
+        /// Show the info of the animal referenced by the 'animal' field. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void showInfoButton_Click(object sender, EventArgs e)
+        {
+            label9.Text = animal.ToString();
+        }
+    }
+}
