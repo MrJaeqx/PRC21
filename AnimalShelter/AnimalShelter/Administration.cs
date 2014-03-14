@@ -21,6 +21,17 @@ namespace AnimalShelter
             this.Add(new Dog((12321).ToString(), new SimpleDate(1, 1, 1651), "Doge", new SimpleDate(5, 8, 2333), false));
         }
 
+        public Animal Animal
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public bool Add(Animal animal)
         {
             if (animals.Exists(x => x.ChipRegistrationNumber == animal.ChipRegistrationNumber))
