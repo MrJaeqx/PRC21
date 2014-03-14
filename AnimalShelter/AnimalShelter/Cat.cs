@@ -85,5 +85,15 @@ namespace AnimalShelter
 
             return "Cat: " + chipRegNr + ", " + dateOfBirth + ", " + name + ", " + reserved + ", " + badHabits;
         }
+
+        public decimal Price
+        {
+            get
+            {
+                return ((60 - badHabits.Count()) <= 20) ? 20 : (60 - badHabits.Count());
+            }
+
+            private set;
+        }
     }
 }

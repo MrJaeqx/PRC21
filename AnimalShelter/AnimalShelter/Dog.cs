@@ -83,5 +83,15 @@ namespace AnimalShelter
 
             return "Dog: " + chipRegNr + ", " + dateOfBirth + ", " + name + ", " + reserved + ", " + lastWalk ;
         }
+
+        public decimal Price
+        {
+            get
+            {
+                return (Convert.ToInt32(ChipRegistrationNumber) < 50000) ? 200 : 350;
+            }
+
+            private set;
+        }
     }
 }
