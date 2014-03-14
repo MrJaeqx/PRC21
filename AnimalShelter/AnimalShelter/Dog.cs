@@ -81,7 +81,7 @@ namespace AnimalShelter
                 lastWalk = this.LastWalkDate.ToString();
             }
 
-            return "Dog: " + chipRegNr + ", " + dateOfBirth + ", " + name + ", " + reserved + ", " + lastWalk ;
+            return "Dog: " + chipRegNr + ", " + dateOfBirth + ", " + name + ", " + reserved + ", " + lastWalk + "," + Price.ToString();
         }
 
         public decimal Price

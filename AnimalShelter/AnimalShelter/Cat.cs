@@ -83,7 +83,7 @@ namespace AnimalShelter
                 badHabits = this.BadHabits;
             }
 
-            return "Cat: " + chipRegNr + ", " + dateOfBirth + ", " + name + ", " + reserved + ", " + badHabits;
+            return "Cat: " + chipRegNr + ", " + dateOfBirth + ", " + name + ", " + reserved + ", " + badHabits + "," + Price.ToString();
         }
 
         public decimal Price
