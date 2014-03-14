@@ -7,11 +7,12 @@ namespace AnimalShelter
 {
     public interface ISellable
     {
-        // Property declaration: 
+
         decimal Price
         {
             get;
             set;
         }
+
     }
 }
