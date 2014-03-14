@@ -8,7 +8,7 @@ namespace AnimalShelter
     /// <summary>
     /// Class representing an animal in the shelter.
     /// </summary>
-    public class Animal : ISellable
+    public class Animal : ISellable, IComparable<Animal>
     {
         /// <summary>
         /// The maximum length of the chip registration number.
@@ -151,6 +151,11 @@ namespace AnimalShelter
             }
 
             set { }
+        }
+
+        public int CompareTo(Animal other)
+        {
+            return chipRegistrationNumber.CompareTo(other.chipRegistrationNumber);
         }
     }
 }

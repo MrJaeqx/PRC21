@@ -83,6 +83,9 @@ namespace AnimalShelter
                 }
             }
 
+            reservedAnimals.Sort();
+            notReservedAnimals.Sort();
+
             foreach (Animal animal in reservedAnimals)
             {
                 listBox1.Items.Add(animal.ToString());
