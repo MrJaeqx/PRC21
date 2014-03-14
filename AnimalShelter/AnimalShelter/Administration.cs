@@ -18,7 +18,7 @@ namespace AnimalShelter
             this.Add(new Cat((12342).ToString(), new SimpleDate(11, 8, 2018), "Mousie", "massive", true));
             this.Add(new Cat((12343).ToString(), new SimpleDate(12, 8, 2018), "Tijger", "lui", false));
             this.Add(new Dog((12321).ToString(), new SimpleDate(1, 1, 1651), "Munnie", new SimpleDate(5, 8, 1483), false));
-            this.Add(new Dog((12321).ToString(), new SimpleDate(1, 1, 1651), "Doge", new SimpleDate(5, 8, -2333), false));
+            this.Add(new Dog((12321).ToString(), new SimpleDate(1, 1, 1651), "Doge", new SimpleDate(5, 8, 2333), false));
         }
 
         public bool Add(Animal animal)
