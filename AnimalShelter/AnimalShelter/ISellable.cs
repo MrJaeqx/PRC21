@@ -5,8 +5,8 @@ using System.Text;
 
 namespace AnimalShelter
 {
-    interface ISellable
+    public interface ISellable
     {
-        public decimal Price();
+        decimal getPrice();
     }
 }
