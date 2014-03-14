@@ -142,5 +142,15 @@ namespace AnimalShelter
 
             return info;
         }
+
+        public decimal Price
+        {
+            get
+            {
+                return 0;
+            }
+
+            set { }
+        }
     }
 }

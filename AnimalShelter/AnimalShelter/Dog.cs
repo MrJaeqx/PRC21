@@ -91,7 +91,7 @@ namespace AnimalShelter
                 return (Convert.ToInt32(ChipRegistrationNumber) < 50000) ? 200 : 350;
             }
 
-            private set;
+            private set { }
         }
     }
 }

@@ -93,7 +93,7 @@ namespace AnimalShelter
                 return ((60 - badHabits.Count()) <= 20) ? 20 : (60 - badHabits.Count());
             }
 
-            private set;
+            private set { }
         }
     }
 }
