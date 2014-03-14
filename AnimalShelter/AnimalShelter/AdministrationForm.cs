@@ -21,6 +21,10 @@ namespace AnimalShelter
         {
             InitializeComponent();
             animalTypeComboBox.SelectedIndex = 0;
+            administration.Add(new Cat((12341).ToString(), new SimpleDate(10, 8, 2018), "Pinky", "diek", true));
+            administration.Add(new Cat((12342).ToString(), new SimpleDate(11, 8, 2018), "Mousie", "massive", true));
+            administration.Add(new Cat((12343).ToString(), new SimpleDate(12, 8, 2018), "Tijger", "lui", false));
+            administration.Add(new Dog((12321).ToString(), new SimpleDate(1, 1, 1651), "Muney", new SimpleDate(5, 8, 1483), false));
             updateLists();
         }
 
