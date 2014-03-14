@@ -25,8 +25,8 @@ namespace AnimalShelter
         /// <param name="name">The name of the animal or null if unknown</param>
         /// <param name="badHabits">The nasty habbits of the cat (e.g. "scratches the couch")
         ///                           or null if none.</param>
-        public Cat(string chipRegistrationNumber, SimpleDate dateOfBirth, string name, string badHabits)
-            : base(chipRegistrationNumber, dateOfBirth, name)
+        public Cat(string chipRegistrationNumber, SimpleDate dateOfBirth, string name, string badHabits, bool reserved)
+            : base(chipRegistrationNumber, dateOfBirth, name, reserved)
         {
             this.badHabits = badHabits;
         }

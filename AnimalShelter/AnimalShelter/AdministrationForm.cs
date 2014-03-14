@@ -11,10 +11,8 @@ namespace AnimalShelter
 {
     public partial class AdministrationForm : Form
     {
-        /// <summary>
-        /// The (only) animal in this administration (for now....)
-        /// </summary>
-        private Animal animal;
+
+        private Administration administration = new Administration();
 
         /// <summary>
         /// Creates the form for doing adminstrative tasks
@@ -23,7 +21,7 @@ namespace AnimalShelter
         {
             InitializeComponent();
             animalTypeComboBox.SelectedIndex = 0;
-            animal = null;
+            updateLists();
         }
 
         /// <summary>
@@ -42,14 +40,15 @@ namespace AnimalShelter
                 if(textBox6.Text != "" && textBox7.Text != "" && textBox8.Text != ""){
                     walk = new SimpleDate(Convert.ToInt32(textBox8.Text), Convert.ToInt32(textBox7.Text), Convert.ToInt32(textBox6.Text));
                 }
-                animal = new Dog(textBox1.Text, birth, textBox2.Text, walk);
+                administration.Add(new Dog(textBox1.Text, birth, textBox2.Text, walk, checkBox1.Checked));
             }
 
             if (animalTypeComboBox.Text == "Cat")
             {
                 SimpleDate birth = new SimpleDate(Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox4.Text), Convert.ToInt32(textBox5.Text));
-                animal = new Cat(textBox1.Text, birth, textBox2.Text, textBox11.Text);
+                administration.Add(new Cat(textBox1.Text, birth, textBox2.Text, textBox11.Text, checkBox1.Checked));
             }
+            updateLists();
         }
 
         /// <summary>
@@ -59,7 +58,37 @@ namespace AnimalShelter
         /// <param name="e"></param>
         private void showInfoButton_Click(object sender, EventArgs e)
         {
-            label9.Text = animal.ToString();
+            //label9.Text = animal.ToString();
+            updateLists();
+        }
+
+        private void updateLists()
+        {
+            List<Animal> animals = administration.GetAnimals();
+            List<Animal> reservedAnimals = new List<Animal>();
+            List<Animal> notReservedAnimals = new List<Animal>();
+
+            foreach (Animal animal in animals)
+            {
+                if (animal.IsReserved)
+                {
+                    reservedAnimals.Add(animal);
+                }
+                else
+                {
+                    notReservedAnimals.Add(animal);
+                }
+            }
+
+            foreach (Animal animal in reservedAnimals)
+            {
+                listBox1.Items.Add(animal.ToString());
+            }
+
+            foreach (Animal animal in notReservedAnimals)
+            {
+                listBox2.Items.Add(animal.ToString());
+            }
         }
     }
 }
