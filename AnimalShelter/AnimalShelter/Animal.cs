@@ -8,7 +8,7 @@ namespace AnimalShelter
     /// <summary>
     /// Class representing an animal in the shelter.
     /// </summary>
-    public class Animal : ISellable, IComparable<Animal>
+    public abstract class Animal : ISellable, IComparable<Animal>
     {
         /// <summary>
         /// The maximum length of the chip registration number.
@@ -103,7 +103,7 @@ namespace AnimalShelter
         ///                 Name will be "noname" if unknown or the actual name otherwise.
         ///                 IsReserved will be "reserved" if reserved or "not reserved" otherwise. 
         /// </returns>
-        public override string ToString()
+        public virtual string ToString()
         {
             string dateOfBirthString;
             if (dateOfBirth == null)
