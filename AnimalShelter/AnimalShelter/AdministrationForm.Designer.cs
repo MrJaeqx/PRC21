@@ -30,7 +30,6 @@
         {
             this.animalTypeComboBox = new System.Windows.Forms.ComboBox();
             this.createAnimalButton = new System.Windows.Forms.Button();
-            this.showInfoButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -47,8 +46,6 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
@@ -75,16 +72,6 @@
             this.createAnimalButton.Text = "Create";
             this.createAnimalButton.UseVisualStyleBackColor = true;
             this.createAnimalButton.Click += new System.EventHandler(this.createAnimalButton_Click);
-            // 
-            // showInfoButton
-            // 
-            this.showInfoButton.Location = new System.Drawing.Point(209, 10);
-            this.showInfoButton.Name = "showInfoButton";
-            this.showInfoButton.Size = new System.Drawing.Size(75, 23);
-            this.showInfoButton.TabIndex = 2;
-            this.showInfoButton.Text = "Show info";
-            this.showInfoButton.UseVisualStyleBackColor = true;
-            this.showInfoButton.Click += new System.EventHandler(this.showInfoButton_Click);
             // 
             // label1
             // 
@@ -212,24 +199,6 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Cat only";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 245);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(28, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Info:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 260);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "label9";
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -243,29 +212,27 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(340, 40);
+            this.listBox1.Location = new System.Drawing.Point(235, 10);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(327, 147);
+            this.listBox1.Size = new System.Drawing.Size(306, 186);
             this.listBox1.TabIndex = 22;
             // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(687, 132);
+            this.listBox2.Location = new System.Drawing.Point(547, 10);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(305, 186);
+            this.listBox2.Size = new System.Drawing.Size(306, 186);
             this.listBox2.TabIndex = 23;
             // 
             // AdministrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 327);
+            this.ClientSize = new System.Drawing.Size(872, 210);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -282,7 +249,6 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.showInfoButton);
             this.Controls.Add(this.createAnimalButton);
             this.Controls.Add(this.animalTypeComboBox);
             this.Name = "AdministrationForm";
@@ -296,7 +262,6 @@
 
         private System.Windows.Forms.ComboBox animalTypeComboBox;
         private System.Windows.Forms.Button createAnimalButton;
-        private System.Windows.Forms.Button showInfoButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
@@ -313,8 +278,6 @@
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;

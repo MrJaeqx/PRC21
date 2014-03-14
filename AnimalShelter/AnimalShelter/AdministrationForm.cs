@@ -51,17 +51,6 @@ namespace AnimalShelter
             updateLists();
         }
 
-        /// <summary>
-        /// Show the info of the animal referenced by the 'animal' field. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void showInfoButton_Click(object sender, EventArgs e)
-        {
-            //label9.Text = animal.ToString();
-            updateLists();
-        }
-
         private void updateLists()
         {
             listBox1.Items.Clear();
