@@ -64,6 +64,9 @@ namespace AnimalShelter
 
         private void updateLists()
         {
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+
             List<Animal> animals = administration.GetAnimals();
             List<Animal> reservedAnimals = new List<Animal>();
             List<Animal> notReservedAnimals = new List<Animal>();
