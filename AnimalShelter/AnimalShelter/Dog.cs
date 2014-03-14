@@ -24,8 +24,8 @@ namespace AnimalShelter
         /// <param name="dateOfBirth">The date of birth of the animal or null if unknown</param>
         /// <param name="name">The name of the animal or null if unknown</param>
         /// <param name="lastWalkDate">The date of the last walk with the dog or null if unknown.</param>
-        public Dog(string chipRegistrationNumber, SimpleDate dateOfBirth, string name, SimpleDate lastWalkDate)
-            : base(chipRegistrationNumber, dateOfBirth, name)
+        public Dog(string chipRegistrationNumber, SimpleDate dateOfBirth, string name, SimpleDate lastWalkDate, bool reserved)
+            : base(chipRegistrationNumber, dateOfBirth, name, reserved)
         {
             this.lastWalkDate = lastWalkDate;
         }

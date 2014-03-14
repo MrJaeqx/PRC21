@@ -34,7 +34,7 @@ namespace AnimalShelter
         ///                                      So "1234567" becomes "12345"</param>
         /// <param name="dateOfBirth">The date of birth of the animal or null if unknown</param>
         /// <param name="name">The name of the animal or null if unknown</param>
-        public Animal(string chipRegistrationNumber, SimpleDate dateOfBirth, string name)
+        public Animal(string chipRegistrationNumber, SimpleDate dateOfBirth, string name, bool reserved)
         {
             if (chipRegistrationNumber.Length < chipRegistrationNumberMaxLength)
             {
@@ -53,7 +53,7 @@ namespace AnimalShelter
 
             this.dateOfBirth = dateOfBirth;
             this.name = name;
-            isReserved = false;
+            isReserved = reserved;
         }
 
         /// <summary>
