@@ -57,9 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnimalShelter\AnimalShelter.csproj">
+    <ProjectReference Include="..\Week 5\Week 5.csproj">
       <Project>{1d4fd5cc-6f3f-4259-8f48-18b25c9301fb}</Project>
-      <Name>AnimalShelter</Name>
+      <Name>Week 5</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
