@@ -53,5 +53,33 @@ namespace TestProject
             bool actual = cat.IsReserved;
             Assert.AreEqual(expected, actual, "Reserved not set");
         }
+
+        [TestMethod]
+        public void TestCatType()
+        {
+            // arange
+            string expected = "Kat";
+            Cat cat = new Cat("1337", new SimpleDate(1, 1, 1), "Naam", "dingen", false);
+
+            // act
+            string actual = cat.AnimalType;
+
+            // assert
+            Assert.AreEqual(expected, actual, "Wrong animal type.");
+        }
+
+        [TestMethod]
+        public void TestCatToString()
+        {
+            // arange
+            string expected = "Cat: 12341, 10-08-2018, Pinky, reserved, diek, 56";
+            Cat cat = new Cat((12341).ToString(), new SimpleDate(10, 8, 2018), "Pinky", "diek", true);
+
+            // act
+            string actual = cat.ToString();
+
+            // assert
+            Assert.AreEqual(expected, actual, "Wrong to string.");
+        }
     }
 }

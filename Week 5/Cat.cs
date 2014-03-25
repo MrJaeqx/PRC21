@@ -60,14 +60,14 @@ namespace AnimalShelter
             string badHabits;
             if (this.BadHabits == null || this.BadHabits == "")
             {
-                badHabits = "noname";
+                badHabits = "no bad habits";
             }
             else
             {
                 badHabits = this.BadHabits;
             }
 
-            return "Cat: " + base.ToString() + ", " + badHabits + "," + Price.ToString();
+            return "Cat: " + base.ToString() + ", " + badHabits + ", " + Price.ToString();
         }
 
         public override decimal Price

@@ -65,7 +65,7 @@ namespace AnimalShelter
                 lastWalk = this.LastWalkDate.ToString();
             }
 
-            return "Dog: " + base.ToString() + ", " + lastWalk + "," + Price.ToString();
+            return "Dog: " + base.ToString() + ", " + lastWalk + ", " + Price.ToString();
         }
 
         public override decimal Price

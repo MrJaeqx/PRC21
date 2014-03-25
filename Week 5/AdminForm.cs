@@ -109,12 +109,18 @@ namespace AnimalShelter
                 MessageBox.Show(exc1.Message, "Fout bij het toevegen van dier");
                 return;
             }
+            catch (FormatException exc2)
+            {
+                MessageBox.Show(exc2.Message, "Fout bij het toevoegen van dier");
+                return;
+            }
 
             if (comboBoxType.Text == "Kat")
             {
                 if (!admin.Add(new Cat(chipNr, birthDay, name, textBoxBadHabits.Text, reserved)))
                 {
                     MessageBox.Show("Dier bestaat al.", "Fout bij het toevegen van dier");
+                    return;
                 }
             }
             else if (comboBoxType.Text == "Hond")
@@ -133,13 +139,20 @@ namespace AnimalShelter
                     MessageBox.Show(exc1.Message, "Fout bij het toevegen van dier");
                     return;
                 }
+                catch (FormatException exc2)
+                {
+                    MessageBox.Show(exc2.Message, "Fout bij het toevoegen van dier");
+                    return;
+                }
 
                 if (!admin.Add(new Dog(chipNr, birthDay, name, lastWalkDate, reserved))) {
                     MessageBox.Show("Fout bij het toevegen van dier", "Dier bestaat al.");
+                    return;
                 }
             }
 
             updateList();
+            buttonClear_Click(null, null);
         }
 
         private string getChipNrSelectedItem()
