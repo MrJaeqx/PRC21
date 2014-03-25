@@ -8,6 +8,21 @@ namespace TestProject
     public class CatTest
     {
         [TestMethod]
+        public void TestCatTooLongChipNumber()
+        {
+            // arrange
+            string chipNumber = "234567890";
+            string expected = "23456";
+
+            // act
+            Cat cat = new Cat(chipNumber, new SimpleDate(1, 1, 1), "Name", "euleuleul", false);
+            string actual = cat.ChipRegistrationNumber;
+
+            // assert
+            Assert.AreEqual(expected, actual, "Number not correctly trimmed");
+        }
+
+        [TestMethod]
         public void TestBadHabitsSet()
         {
             // arrange

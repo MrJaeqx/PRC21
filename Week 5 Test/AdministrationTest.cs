@@ -37,6 +37,21 @@ namespace TestProject
             Assert.AreEqual(expected, succes, "Dog added double");
         }
 
+        //[TestMethod]
+        //public void TestAddTooLongChipNumber()
+        //{
+        //    // arange
+        //    Administration admin = new Administration();
+        //    Dog doge = new Dog("18489474867346", new SimpleDate(1, 1, 1), "Naam", new SimpleDate(1, 1, 1), false);
+        //    bool expected = false;
+
+        //    // act
+        //    bool actual = admin.Add(doge);
+            
+        //    // assert
+        //    Assert.AreEqual(expected, actual, "Chip number too long");
+        //}
+
         [TestMethod]
         public void TestRemove()
         {
@@ -50,6 +65,21 @@ namespace TestProject
 
             // assert
             Assert.AreEqual(expected, succes, "Dog not removed");
+        }
+
+        [TestMethod]
+        public void TestRemoveNonExistent()
+        {
+            // arrange
+            Administration admin = new Administration();
+            string chipNumber = "11111111";
+            bool expected = false;
+
+            // act
+            bool succes = admin.RemoveAnimal(chipNumber);
+
+            // assert
+            Assert.AreEqual(expected, succes, "Non existing dog removed.");
         }
 
         [TestMethod]

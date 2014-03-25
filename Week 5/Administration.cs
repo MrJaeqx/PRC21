@@ -7,9 +7,14 @@ namespace AnimalShelter
 {
     public class Administration
     {
-
+        /// <summary>
+        /// Lijst van dieren die geregistreerd zijn.
+        /// </summary>
         private List<Animal> animals;
         
+        /// <summary>
+        /// Maak een nieuw Administration object aan en voegt dummy data toe.
+        /// </summary>
         public Administration()
         {
             animals = new List<Animal>();
@@ -21,17 +26,12 @@ namespace AnimalShelter
             this.Add(new Dog((12321).ToString(), new SimpleDate(1, 1, 1651), "Doge", new SimpleDate(5, 8, 2333), false));
         }
 
-        public Animal Animal
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
+        /// <summary>
+        /// Dier toevoegen aan de administratie.
+        /// </summary>
+        /// <param name="animal">Toe te voegen dier.</param>
+        /// <returns>True indien het dier is toegevoegd.
+        /// False indien het dier al bestaat.</returns>
         public bool Add(Animal animal)
         {
             if (animals.Exists(x => x.ChipRegistrationNumber == animal.ChipRegistrationNumber))
@@ -45,27 +45,91 @@ namespace AnimalShelter
             }
         }
 
+        /// <summary>
+        /// Dier verwijderen uit de administratie.
+        /// </summary>
+        /// <param name="chipRegistrationNumber">Chip nummer van het te verwijderen dier.</param>
+        /// <returns>True indien het dier is verwijderd.
+        /// False indien het dier niet is verwijderd.</returns>
         public bool RemoveAnimal(string chipRegistrationNumber)
         {
-            try
-            {
-                animals.Remove(animals.Find(x => x.ChipRegistrationNumber == chipRegistrationNumber));
-            }
-            catch (Exception exc)
+            Animal animalToRemove = FindAnimal(chipRegistrationNumber);
+
+            if (animalToRemove == null)
             {
                 return false;
             }
-            return true;
+            else
+            {
+                animals.Remove(animalToRemove);
+                return true;
+            }
         }
 
+        /// <summary>
+        /// Dier zoeken in de administratie.
+        /// </summary>
+        /// <param name="chipRegistrationNumber">Chip nummer van het te vinden dier.</param>
+        /// <returns>Resultaat van het zoeken.</returns>
         public Animal FindAnimal(string chipRegistrationNumber)
         {
-            return animals.Find(x => x.ChipRegistrationNumber == chipRegistrationNumber);
+            Animal foundAnimal = null;
+            foreach (Animal animal in animals)
+            {
+                if (animal.ChipRegistrationNumber == chipRegistrationNumber)
+                {
+                    foundAnimal = animal;
+                }
+            }
+            return foundAnimal;
         }
 
-        public List<Animal> GetAnimals()
+        /// <summary>
+        /// Lijst met dieren ophalen.
+        /// </summary>
+        public List<Animal> AllAnimals
         {
-            return animals;
+            get
+            {
+                return animals;
+            }
+        }
+
+        /// <summary>
+        /// Lijst met gereserveerde dieren.
+        /// </summary>
+        public List<Animal> ReservedAnimals
+        {
+            get {
+                List<Animal> reservedAnimals = new List<Animal>();
+                foreach (Animal animal in animals)
+                {
+                    if (animal.IsReserved)
+                    {
+                        reservedAnimals.Add(animal);
+                    }
+                }
+                return reservedAnimals;
+            }
+        }
+
+        /// <summary>
+        /// Lijst met niet gereserveerde dieren.
+        /// </summary>
+        public List<Animal> NotReservedAnimals
+        {
+            get
+            {
+                List<Animal> notReservedAnimals = new List<Animal>();
+                foreach (Animal animal in animals)
+                {
+                    if (!animal.IsReserved)
+                    {
+                        notReservedAnimals.Add(animal);
+                    }
+                }
+                return notReservedAnimals;
+            }
         }
     }
 }

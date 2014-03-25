@@ -11,7 +11,6 @@ namespace AnimalShelter
         decimal Price
         {
             get;
-            set;
         }
 
     }

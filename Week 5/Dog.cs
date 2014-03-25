@@ -55,43 +55,33 @@ namespace AnimalShelter
         /// </returns>
         public override string ToString()
         {
-            string chipRegNr = this.ChipRegistrationNumber;
-            string dateOfBirth = "00-00-0000";
-            string name = "noname";
-            string reserved = "not reserved";
-            string lastWalk = "00-00-0000";
-
-            if (this.DateOfBirth != null)
+            string lastWalk;
+            if (this.LastWalkDate == null)
             {
-                dateOfBirth = this.DateOfBirth.ToString();
+                lastWalk = "00-00-000";
             }
-
-            if (this.Name != "")
-            {
-                name = this.Name;
-            }
-
-            if (this.IsReserved)
-            {
-                reserved = "reserved";
-            }
-
-            if (this.LastWalkDate != null)
+            else
             {
                 lastWalk = this.LastWalkDate.ToString();
             }
 
-            return "Dog: " + chipRegNr + ", " + dateOfBirth + ", " + name + ", " + reserved + ", " + lastWalk + "," + Price.ToString();
+            return "Dog: " + base.ToString() + ", " + lastWalk + "," + Price.ToString();
         }
 
-        public decimal Price
+        public override decimal Price
         {
             get
             {
                 return (Convert.ToInt32(ChipRegistrationNumber) < 50000) ? 200 : 350;
             }
+        }
 
-            private set { }
+        public override string AnimalType
+        {
+            get
+            {
+                return "Hond";
+            }
         }
     }
 }

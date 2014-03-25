@@ -56,44 +56,34 @@ namespace AnimalShelter
         ///                 BadHabits will be "none" if none present or a description of the actual habits otherwise.
         /// </returns>
         public override string ToString()
-        {
-            string chipRegNr = this.ChipRegistrationNumber;
-            string dateOfBirth = "00-00-0000";
-            string name = "noname";
-            string reserved = "not reserved";
-            string badHabits = "none";
-
-            if (this.DateOfBirth != null)
+        {            
+            string badHabits;
+            if (this.BadHabits == null || this.BadHabits == "")
             {
-                dateOfBirth = this.DateOfBirth.ToString();
+                badHabits = "noname";
             }
-
-            if (this.Name != "")
-            {
-                name = this.Name;
-            }
-
-            if (this.IsReserved)
-            {
-                reserved = "reserved";
-            }
-
-            if (this.BadHabits != "")
+            else
             {
                 badHabits = this.BadHabits;
             }
 
-            return "Cat: " + chipRegNr + ", " + dateOfBirth + ", " + name + ", " + reserved + ", " + badHabits + "," + Price.ToString();
+            return "Cat: " + base.ToString() + ", " + badHabits + "," + Price.ToString();
         }
 
-        public decimal Price
+        public override decimal Price
         {
             get
             {
                 return ((60 - badHabits.Count()) <= 20) ? 20 : (60 - badHabits.Count());
             }
+        }
 
-            private set { }
+        public override string AnimalType
+        {
+            get
+            {
+                return "Kat";
+            }
         }
     }
 }

@@ -91,6 +91,15 @@ namespace AnimalShelter
         }
 
         /// <summary>
+        /// Animal type.
+        /// </summary>
+        public virtual string AnimalType
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Retrieve information about this animal
         /// 
         /// Note: Every class inherits (automagically) from the 'Object' class,
@@ -143,14 +152,10 @@ namespace AnimalShelter
             return info;
         }
 
-        public decimal Price
+        public virtual decimal Price
         {
-            get
-            {
-                return 0;
-            }
-
-            set { }
+            get;
+            set;
         }
 
         public int CompareTo(Animal other)
