@@ -83,7 +83,7 @@ namespace AnimalShelter
         {
             get
             {
-                return "Kat";
+                return "Cat";
             }
         }
     }

@@ -186,7 +186,42 @@ namespace AnimalShelter
         /// <param name="fileName">The text file to write to.</param>
         public void Export(string fileName)
         {
+            if (animals == null)
+            {
+                throw new ArgumentNullException("animals", "Anminals kan niet null zijn.");
+            }
+            if (fileName == null)
+            {
+                throw new ArgumentNullException("fileName", "Geef een geldig bestandspad op.");
+            }
 
+
+            StreamWriter sw = new StreamWriter(fileName);
+
+            foreach (Animal animal in animals)
+            {
+                string line = "";
+
+                line += animal.AnimalType + ": ";
+                line += animal.ChipRegistrationNumber + ", ";
+                line += animal.Name + ", ";
+                line += animal.DateOfBirth.ToString() + ", ";
+                line += animal.IsReserved.ToString() + ", ";
+                if (animal is Cat)
+                {
+                    Cat cat = (Cat)animal;
+                    line += cat.BadHabits;
+                }
+                else if (animal is Dog)
+                {
+                    Dog doge = (Dog)animal;
+                    line += doge.LastWalkDate.ToString();
+                }
+
+                sw.WriteLine(line);
+            }
+
+            sw.Close();
         }
 
     }

@@ -208,5 +208,10 @@ namespace AnimalShelter
             updateList();
         }
 
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            admin.Export(@"C:\Users\Lars\Desktop\MyFile.txt");
+        }
+
     }
 }

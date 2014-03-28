@@ -38,6 +38,7 @@
             this.gereserveerdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verwijderenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.loadButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonClear = new System.Windows.Forms.Button();
@@ -60,7 +61,7 @@
             this.textBoxBadHabits = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.loadButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -132,6 +133,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.exportButton);
             this.panel1.Controls.Add(this.loadButton);
             this.panel1.Controls.Add(this.saveButton);
             this.panel1.Controls.Add(this.groupBox1);
@@ -142,11 +144,21 @@
             this.panel1.Size = new System.Drawing.Size(244, 324);
             this.panel1.TabIndex = 1;
             // 
+            // loadButton
+            // 
+            this.loadButton.Location = new System.Drawing.Point(92, 296);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(59, 23);
+            this.loadButton.TabIndex = 3;
+            this.loadButton.Text = "Load";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(20, 296);
+            this.saveButton.Location = new System.Drawing.Point(14, 296);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.Size = new System.Drawing.Size(59, 23);
             this.saveButton.TabIndex = 2;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -351,15 +363,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Animal shelter";
             // 
-            // loadButton
+            // exportButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(101, 296);
-            this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(75, 23);
-            this.loadButton.TabIndex = 3;
-            this.loadButton.Text = "Load";
-            this.loadButton.UseVisualStyleBackColor = true;
-            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            this.exportButton.Location = new System.Drawing.Point(170, 296);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(59, 23);
+            this.exportButton.TabIndex = 4;
+            this.exportButton.Text = "Export";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // AdminForm
             // 
@@ -412,5 +424,6 @@
         private System.Windows.Forms.ToolStripMenuItem verwijderenToolStripMenuItem;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.Button exportButton;
     }
 }
