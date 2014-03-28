@@ -169,7 +169,7 @@ namespace AnimalShelter
             }
         }
 
-        private void gereserveerdToolStripMenuItem_Click(object sender, EventArgs e)
+        private void reservedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
@@ -186,7 +186,7 @@ namespace AnimalShelter
             updateList();
         }
 
-        private void verwijderenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
@@ -212,7 +212,7 @@ namespace AnimalShelter
                 {
                     admin.Save(saveFileDialog.FileName);
                 }
-                catch (UnauthorizedAccessException e1)
+                catch (UnauthorizedAccessException)
                 {
                     MessageBox.Show("Access denied for " + saveFileDialog.FileName + ".", "Save to file", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

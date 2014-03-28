@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Gereserveerd", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Niet gereserveerd", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Gereserveerd", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Niet gereserveerd", System.Windows.Forms.HorizontalAlignment.Left);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.gereserveerdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verwijderenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.reservedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.exportButton = new System.Windows.Forms.Button();
             this.loadButton = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -87,15 +87,15 @@
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
-            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.listView1.ContextMenuStrip = this.contextMenuStrip;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup3.Header = "Gereserveerd";
-            listViewGroup3.Name = "listViewGroupReserved";
-            listViewGroup4.Header = "Niet gereserveerd";
-            listViewGroup4.Name = "listViewGroupNotReserved";
+            listViewGroup1.Header = "Gereserveerd";
+            listViewGroup1.Name = "listViewGroupReserved";
+            listViewGroup2.Header = "Niet gereserveerd";
+            listViewGroup2.Name = "listViewGroupNotReserved";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup1,
+            listViewGroup2});
             this.listView1.Location = new System.Drawing.Point(253, 3);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -109,27 +109,27 @@
             this.columnHeader1.Text = "Dier";
             this.columnHeader1.Width = 400;
             // 
-            // contextMenuStrip1
+            // contextMenuStrip
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gereserveerdToolStripMenuItem,
-            this.verwijderenToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 48);
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reservedToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip1";
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 70);
             // 
-            // gereserveerdToolStripMenuItem
+            // reservedToolStripMenuItem
             // 
-            this.gereserveerdToolStripMenuItem.Name = "gereserveerdToolStripMenuItem";
-            this.gereserveerdToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.gereserveerdToolStripMenuItem.Text = "Gereserveerd";
-            this.gereserveerdToolStripMenuItem.Click += new System.EventHandler(this.gereserveerdToolStripMenuItem_Click);
+            this.reservedToolStripMenuItem.Name = "reservedToolStripMenuItem";
+            this.reservedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reservedToolStripMenuItem.Text = "Gereserveerd";
+            this.reservedToolStripMenuItem.Click += new System.EventHandler(this.reservedToolStripMenuItem_Click);
             // 
-            // verwijderenToolStripMenuItem
+            // deleteToolStripMenuItem
             // 
-            this.verwijderenToolStripMenuItem.Name = "verwijderenToolStripMenuItem";
-            this.verwijderenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.verwijderenToolStripMenuItem.Text = "Verwijderen";
-            this.verwijderenToolStripMenuItem.Click += new System.EventHandler(this.verwijderenToolStripMenuItem_Click);
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Text = "Verwijderen";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -383,7 +383,7 @@
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -419,9 +419,9 @@
         private System.Windows.Forms.CheckBox checkBoxReserved;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem gereserveerdToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verwijderenToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem reservedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Button exportButton;
