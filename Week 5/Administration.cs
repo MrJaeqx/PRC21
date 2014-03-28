@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
 namespace AnimalShelter
@@ -131,5 +134,95 @@ namespace AnimalShelter
                 return notReservedAnimals;
             }
         }
+
+        /// <summary>
+        /// Saves all animals to a file with the given file name using serialisation.
+        /// </summary>
+        /// <param name="fileName">The file to write to.</param>
+        public void Save(string fileName)
+        {
+            if (animals == null)
+            {
+                throw new ArgumentNullException("animals", "Anminals kan niet null zijn.");
+            }
+            if (fileName == null) {
+                throw new ArgumentNullException("fileName", "Geef een geldig bestandspad op.");
+            }
+                
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, animals);
+            stream.Close();
+                
+        }
+
+        /// <summary>
+        /// Loads all animals from a file with the given file name using deserialisation.
+        /// All animals currently in the administration are removed.
+        /// </summary>
+        /// <param name="fileName">The file to read from.</param>
+        public void Load(string fileName)
+        {
+            if (fileName == null)
+            {
+                throw new ArgumentNullException("fileName", "Geef een geldig bestandspad op.");
+            }
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<Animal> loadedAnimals = (List<Animal>)formatter.Deserialize(stream);
+            stream.Close();
+
+            animals = loadedAnimals;
+        }
+
+        /// <summary>
+        /// Exports the info of all animals to a text file with the given file name.
+        /// 
+        /// Each line of the file contains the info about exactly one animal.
+        /// Each line starts with the type of animal and a colon (e.g. 'Cat:' or 'Dog:')
+        /// followed by the properties of the animal seperated by comma's.
+        /// </summary>
+        /// <param name="fileName">The text file to write to.</param>
+        public void Export(string fileName)
+        {
+            if (animals == null)
+            {
+                throw new ArgumentNullException("animals", "Anminals kan niet null zijn.");
+            }
+            if (fileName == null)
+            {
+                throw new ArgumentNullException("fileName", "Geef een geldig bestandspad op.");
+            }
+
+
+            StreamWriter sw = new StreamWriter(fileName);
+
+            foreach (Animal animal in animals)
+            {
+                string line = "";
+
+                line += animal.AnimalType + ": ";
+                line += animal.ChipRegistrationNumber + ", ";
+                line += animal.Name + ", ";
+                line += animal.DateOfBirth.ToString() + ", ";
+                line += animal.IsReserved.ToString() + ", ";
+                if (animal is Cat)
+                {
+                    Cat cat = (Cat)animal;
+                    line += cat.BadHabits;
+                }
+                else if (animal is Dog)
+                {
+                    Dog doge = (Dog)animal;
+                    line += doge.LastWalkDate.ToString();
+                }
+
+                sw.WriteLine(line);
+            }
+
+            sw.Close();
+        }
+
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Gereserveerd", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Niet gereserveerd", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Gereserveerd", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Niet gereserveerd", System.Windows.Forms.HorizontalAlignment.Left);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,6 +38,9 @@
             this.gereserveerdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verwijderenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.exportButton = new System.Windows.Forms.Button();
+            this.loadButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -77,7 +80,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(694, 329);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(694, 330);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // listView1
@@ -86,17 +89,17 @@
             this.columnHeader1});
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup1.Header = "Gereserveerd";
-            listViewGroup1.Name = "listViewGroupReserved";
-            listViewGroup2.Header = "Niet gereserveerd";
-            listViewGroup2.Name = "listViewGroupNotReserved";
+            listViewGroup3.Header = "Gereserveerd";
+            listViewGroup3.Name = "listViewGroupReserved";
+            listViewGroup4.Header = "Niet gereserveerd";
+            listViewGroup4.Name = "listViewGroupNotReserved";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
+            listViewGroup3,
+            listViewGroup4});
             this.listView1.Location = new System.Drawing.Point(253, 3);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(438, 323);
+            this.listView1.Size = new System.Drawing.Size(438, 324);
             this.listView1.TabIndex = 15;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -130,13 +133,46 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.exportButton);
+            this.panel1.Controls.Add(this.loadButton);
+            this.panel1.Controls.Add(this.saveButton);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(244, 323);
+            this.panel1.Size = new System.Drawing.Size(244, 324);
             this.panel1.TabIndex = 1;
+            // 
+            // exportButton
+            // 
+            this.exportButton.Location = new System.Drawing.Point(170, 296);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(59, 23);
+            this.exportButton.TabIndex = 4;
+            this.exportButton.Text = "Export";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
+            // loadButton
+            // 
+            this.loadButton.Location = new System.Drawing.Point(92, 296);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(59, 23);
+            this.loadButton.TabIndex = 3;
+            this.loadButton.Text = "Load";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(14, 296);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(59, 23);
+            this.saveButton.TabIndex = 2;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // groupBox1
             // 
@@ -341,7 +377,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 329);
+            this.ClientSize = new System.Drawing.Size(694, 330);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(710, 368);
             this.Name = "AdminForm";
@@ -386,5 +422,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem gereserveerdToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verwijderenToolStripMenuItem;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.Button exportButton;
     }
 }

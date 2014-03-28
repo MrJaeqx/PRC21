@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace AnimalShelter
 {
@@ -131,7 +132,7 @@ namespace AnimalShelter
                     lastWalkDate = new SimpleDate(Convert.ToInt32(textBoxWDDay.Text), Convert.ToInt32(textBoxWDMonth.Text), Convert.ToInt32(textBoxWDYear.Text));
                     
                 } catch (InvalidCastException exc) {
-                    MessageBox.Show("Niet geldige uitlaat datum.", "Fout bij het toevoegen van dier");
+                    MessageBox.Show("Geen geldige uitlaat datum.", "Fout bij het toevoegen van dier");
                     return;
                 }
                 catch (ArgumentOutOfRangeException exc1)
@@ -195,6 +196,88 @@ namespace AnimalShelter
                 }
             }
             updateList();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Binary file (*.bin)|*.bin";
+            saveFileDialog.InitialDirectory = Environment.SpecialFolder.MyDocuments.ToString();
+            saveFileDialog.DefaultExt = "*.bin";
+            saveFileDialog.FileName = "Animals.bin";
+
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    admin.Save(saveFileDialog.FileName);
+                }
+                catch (UnauthorizedAccessException e1)
+                {
+                    MessageBox.Show("Access denied for " + saveFileDialog.FileName + ".", "Save to file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (DirectoryNotFoundException e2)
+                {
+                    MessageBox.Show("Directory not found.", "Save to file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (ArgumentNullException e3)
+                {
+                    MessageBox.Show(e3.Message, "Save to file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Binary file (*.bin)|*.bin";
+            openFileDialog.InitialDirectory = Environment.SpecialFolder.MyDocuments.ToString();
+            openFileDialog.DefaultExt = "*.bin";
+            openFileDialog.FileName = "Animals.bin";
+            openFileDialog.Multiselect = false;
+
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    admin.Load(openFileDialog.FileName);
+                }
+                catch (ArgumentNullException e1)
+                {
+                    MessageBox.Show(e1.Message, "Load file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                updateList();
+            }
+        }
+
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+            saveFileDialog.InitialDirectory = Environment.SpecialFolder.MyDocuments.ToString();
+            saveFileDialog.DefaultExt = "*.txt";
+            saveFileDialog.FileName = "Animals.txt";
+
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    admin.Export(saveFileDialog.FileName);
+                }
+                catch (UnauthorizedAccessException e1)
+                {
+                    MessageBox.Show("Access denied for " + saveFileDialog.FileName + ".", "Save to file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (DirectoryNotFoundException e2)
+                {
+                    MessageBox.Show("Directory not found.", "Save to file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (ArgumentNullException e3)
+                {
+                    MessageBox.Show(e3.Message, "Save to file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
     }

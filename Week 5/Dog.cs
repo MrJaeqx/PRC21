@@ -5,6 +5,7 @@ using System.Text;
 
 namespace AnimalShelter
 {
+    [Serializable]
     public class Dog : Animal
     {
         // Backing field for property, see actual properties for their description.
@@ -80,7 +81,7 @@ namespace AnimalShelter
         {
             get
             {
-                return "Hond";
+                return "Dog";
             }
         }
     }
