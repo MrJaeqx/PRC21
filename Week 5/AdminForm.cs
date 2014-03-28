@@ -131,7 +131,7 @@ namespace AnimalShelter
                     lastWalkDate = new SimpleDate(Convert.ToInt32(textBoxWDDay.Text), Convert.ToInt32(textBoxWDMonth.Text), Convert.ToInt32(textBoxWDYear.Text));
                     
                 } catch (InvalidCastException exc) {
-                    MessageBox.Show("Niet geldige uitlaat datum.", "Fout bij het toevoegen van dier");
+                    MessageBox.Show("Geen geldige uitlaat datum.", "Fout bij het toevoegen van dier");
                     return;
                 }
                 catch (ArgumentOutOfRangeException exc1)
@@ -194,6 +194,17 @@ namespace AnimalShelter
                     MessageBox.Show("Oeps", "Fout bij het verwijderen van dier");
                 }
             }
+            updateList();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            admin.Save(@"C:\Users\Lars\Desktop\MyFile.bin");
+        }
+
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            admin.Load(@"C:\Users\Lars\Desktop\MyFile.bin");
             updateList();
         }
 
