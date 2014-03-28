@@ -43,7 +43,7 @@ namespace TestProject
         public void TestDogType()
         {
             // arange
-            string expected = "Hond";
+            string expected = "Dog";
             Dog dog = new Dog("1337", new SimpleDate(1, 1, 1), "Naam", new SimpleDate(1, 1, 1), false);
 
             // act

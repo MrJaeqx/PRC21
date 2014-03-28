@@ -58,7 +58,7 @@ namespace TestProject
         public void TestCatType()
         {
             // arange
-            string expected = "Kat";
+            string expected = "Cat";
             Cat cat = new Cat("1337", new SimpleDate(1, 1, 1), "Naam", "dingen", false);
 
             // act
